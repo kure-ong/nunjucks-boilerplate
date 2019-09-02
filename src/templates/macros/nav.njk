@@ -1,0 +1,32 @@
+{% macro active(activePage='home') %}
+<nav class="navbar">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav">
+                <li class="nav-item {%if activePage == 'about' %} active {% endif %}">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item {%if activePage == 'work' %} active {% endif %}">
+                    <a class="nav-link" href="work.html">Work</a>
+                </li>
+                <li class="nav-item {%if activePage == 'awards' %} active {% endif %}">
+                    <a class="nav-link" href="awards.html">Awards</a>
+                </li>
+                <li class="nav-item {%if activePage == 'news' %} active {% endif %}">
+                    <a class="nav-link" href="news.html">News</a>
+                </li>
+                <li class="nav-item {%if activePage == 'careers' %} active {% endif %}">
+                    <a class="nav-link" href="careers.html">Careers</a>
+                </li>
+                <li class="nav-item {%if activePage == 'contact' %} active {% endif %}">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endmacro %}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% endblock %}" />
+    <meta name="keywords" content="{% block keywords %}{% endblock %}" />
+    <meta property="og:title" content="{% block ogtitle %}{% endblock %}" />
+    <meta property="og:url" content="{{ pagefile }}" />
+    <meta property="og:description" content="{% block ogdescription %}{% endblock %}" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{% block ogimage %}{% endblock %}" />
+
+    
+
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body class="{% block bodyclass %}{% endblock %}">
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col footer_copyrights">
+                    Copyright &copy; <span id="footerYear">2019</span> All Rights Reserved.</div>
+                    <script>
+                        document.getElementById("footerYear").innerHTML = new Date().getFullYear();
+                    </script>
+                </div>
+        </div>
+    </footer>
+
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/vendor/bundle.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

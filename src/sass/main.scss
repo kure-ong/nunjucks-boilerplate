@@ -1,0 +1,22 @@
+//mixins
+@import 'mixins';
+
+//settings
+@import 'settings-fonts';
+@import 'settings-colors';
+@import 'settings-overrides';
+
+//vendor
+// @import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
+@import 'node_modules/@fortawesome/fontawesome-free/scss/solid';
+@import 'node_modules/@fortawesome/fontawesome-free/scss/brands';
+
+//declarations
+@import 'fonts';
+
+//styles
+@import 'base';
+@import 'components';
+
+@import 'animation';
