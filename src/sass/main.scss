@@ -1,22 +1,31 @@
-//mixins
-@import 'mixins';
+//-- abstracts
+@import 'abstracts/variables';
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
 
-//settings
-@import 'settings-fonts';
-@import 'settings-colors';
-@import 'settings-overrides';
-
-//vendor
-// @import 'node_modules/bootstrap/scss/bootstrap';
+//-- vendors
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'vendors/vendors-ext/bootstrap';
 @import 'node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
 @import 'node_modules/@fortawesome/fontawesome-free/scss/solid';
 @import 'node_modules/@fortawesome/fontawesome-free/scss/brands';
 
-//declarations
-@import 'fonts';
+//-- base
+// @import 'base/reset';
+@import 'base/animation';
+@import 'base/base';
+@import 'base/typography';
 
-//styles
-@import 'base';
-@import 'components';
+//-- layout
+@import 'layout/navigation';
+// @import 'layout/header';
+// @import 'layout/footer';
 
-@import 'animation';
+//-- components
+@import 'components/buttons';
+
+//-- pages
+@import 'pages/home';
+
+//-- themes
+// @import 'themes/theme';
