@@ -1,5 +1,4 @@
 {% extends "layout.njk" %}
-{% import 'macros/nav.njk' as nav %}
 
 {% block content %}
 <header>
@@ -7,7 +6,8 @@
 </header>
 
 <main class="home">
-
+    
+    {{ btn.link() }}
 </main>
 
 {% endblock %}
