@@ -1,6 +1,7 @@
 // js responsive breakpoints for match media
 const lgUp = '(min-width: 992px)';
 
+// Query String Detector, searches query string variable and returns value
 function detectQString(qs) {
     if (Modernizr.urlsearchparams) {
       var urlParams = new URLSearchParams(location.search);
@@ -16,6 +17,45 @@ function detectQString(qs) {
     }
 }
 
+
+//---
+// Document Ready
+//---
 jQuery(document).ready(function($) {
    
+});
+
+
+
+//---
+// Window Loaded
+//---
+$(window).on('load', function(e){
+  console.log('window.load');
+
+
+
+});
+
+
+
+//---
+// Window Resize
+//---
+$(window).on('resize', function(e) {
+  console.log('window.resize');
+
+
+
+});
+
+
+
+//---
+// Window Scroll
+//---
+$(window).on('scroll', function(e) {
+  // console.log('window.scroll');
+  
+
 });
