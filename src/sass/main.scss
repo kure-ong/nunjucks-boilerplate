@@ -4,8 +4,8 @@
 @import 'abstracts/mixins';
 
 //-- vendors
-@import 'node_modules/bootstrap/scss/bootstrap';
 @import 'vendors/vendors-ext/bootstrap';
+@import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
 @import 'node_modules/@fortawesome/fontawesome-free/scss/solid';
 @import 'node_modules/@fortawesome/fontawesome-free/scss/brands';
