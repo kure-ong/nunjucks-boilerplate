@@ -1,4 +1,4 @@
-// pixel to em convertor
+//-- pixel to em convertor
 @function em($pixels, $context: $browser-base) {
     @if (unitless($pixels)) {
         $pixels: $pixels * 1px;
@@ -11,7 +11,7 @@
     @return $pixels / $context * 1em;
 }
   
-//pixel to rem convertor
+//-- pixel to rem convertor
 @function rem($pixels, $context: $browser-base) {
     @if (unitless($pixels)) {
         $pixels: $pixels * 1px;
@@ -24,6 +24,7 @@
     @return $pixels / $context * 1rem;
 }
 
+//-- string replacer
 @function str-replace($string, $search, $replace: "") {
     $index: str-index($string, $search);
   
