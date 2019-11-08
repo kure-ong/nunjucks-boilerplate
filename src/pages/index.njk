@@ -1,11 +1,12 @@
 {% extends "layout.njk" %}
+{% set bodyclass = 'page-home' %}
 
 {% block content %}
 <header>
     {{nav.active('home')}}
 </header>
 
-<main class="home">
+<main>
     
     {{ btn.link() }}
 </main>
