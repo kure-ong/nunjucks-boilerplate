@@ -1,0 +1,12 @@
+{# Duplicate caller content for the following metas unless otherwise declared #}
+
+{%- macro title(ogtitle,ogsitename) -%}
+    <title>{{ caller() }}</title>
+    <meta property="og:title" content="{{ ogtitle if ogtitle else caller() }}" />
+    <meta property="og:site_name" content="{{ ogsitename if ogsitename else caller() }}" />
+{%- endmacro -%}
+
+{%- macro description(ogdescription) -%}
+    <meta name="description" content="{{ caller() }}" />
+    <meta property="og:description" content="{{ ogdescription if ogdescription else caller() }}" />
+{%- endmacro -%}

@@ -1,3 +1,15 @@
+{% extends "layout.njk" %}
+{% set bodyclass = 'page-example' %}
+{% set pageName = 'example' %}
+{% set pagefile = pageName|lower+'.html' %}
+
+{% block content %}
+<header>
+    {{nav.main(pageName)}}
+</header>
+
+<main>
+
 {# Example tab component #}
 
 {% call tabs.object('example') %}
@@ -83,3 +95,7 @@
         {% endcall %}
     {% endcall %}
 {% endfor %}
+
+</main>
+
+{% endblock %}

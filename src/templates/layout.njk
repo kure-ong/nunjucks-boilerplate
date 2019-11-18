@@ -1,27 +1,20 @@
-{# Import all global macros #}
-{% import 'macros/nav.njk' as nav %}
-{% import 'macros/btn.njk' as btn %}
-{% import 'macros/tabs.njk' as tabs %}
-{% import 'macros/carousel.njk' as carousel %}
-{% import 'macros/modal.njk' as modal %}
-{# End Import all global macros #}
+
+{% extends "globals.njk" %}
+{% block layout %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}{% endblock %}</title>
-    <meta name="description" content="{% block description %}{% endblock %}" />
-    <meta name="keywords" content="{% block keywords %}{% endblock %}" />
-    <meta property="og:title" content="{% block ogtitle %}{% endblock %}" />
-    <meta property="og:url" content="{{ pagefile }}" />
-    <meta property="og:description" content="{% block ogdescription %}{% endblock %}" />
-    <meta property="og:site_name" content="" />
+    {% call meta.title() %}{% block title %}Welcome to the site{% endblock %}{% endcall %}
+    {% call meta.description() %}{% block description %}This is a wonderful site{% endblock %}{% endcall %}
+    <meta name="keywords" content="{% block keywords %}global,keywords,all,here{% endblock %}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image" content="{{ rootUrl }}{% block ogimage %}img/og/placeholder.png{% endblock %}" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="{% block ogimage %}{% endblock %}" />
+    <meta property="og:url" content="{{ rootUrl }}{{ pagefile }}" />
 
     <!-- plugin stylesheets -->
     {# <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -48,3 +41,5 @@
     <script src="js/main.js"></script>
 </body>
 </html>
+
+{% endblock %}

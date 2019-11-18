@@ -1,9 +1,13 @@
 {% extends "layout.njk" %}
-{% set bodyclass = 'page-home' %}
+{% set bodyclass = 'page-index' %}
+{% set pageName = 'index' %}
+{% set pagefile = pageName|lower+'.html' %}
+{% block title %}Index page title{% endblock %}
+{% block description %}Index page description{% endblock %}
 
 {% block content %}
 <header>
-    {{nav.active('home')}}
+    {{nav.main(pageName)}}
 </header>
 
 <main>
