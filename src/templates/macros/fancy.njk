@@ -1,0 +1,27 @@
+{%- macro object(pageName,serial,classes = []) -%}
+    <div class="fancy fancy-{{pageName}}{{serial}} {{ classes | join(' ') }}">
+        {{ caller() }}
+    </div>
+{%- endmacro -%}
+
+{%- macro imgLayer(layerNum,aos,classes = []) -%}
+    <div class="fancy_imageLayer fancy_imageLayer-{{layerNum}} {{ classes | join(' ') }}">
+        <div class="fancy_animate" data-aos="{{ aos }}" data-aos-delay="{{100 + (300 * layerNum) }}">
+            {{ caller() }}
+        </div>
+    </div>
+{%- endmacro -%}
+
+{%- macro imgElem(layerNum,img,classes = [],alt) -%}
+    <div class="fancy_image fancy_image-{{layerNum}} {{ classes | join(' ') }}">
+        <img src="{{ img }}"{%if alt %} alt="{{ alt }}"{% endif %} class="d-none d-sm-block">
+        <img src="{{ img | appendFilename('_mob') }}" {%if alt %} alt="{{ alt }}"{% endif %} class="d-block d-sm-none">
+        {{ caller() }}
+    </div>
+{%- endmacro -%}
+
+{%- macro content(classes = []) -%}
+    <div class="fancy_content {{ classes | join(' ') }}">
+        {{ caller() }}
+    </div>
+{%- endmacro -%}

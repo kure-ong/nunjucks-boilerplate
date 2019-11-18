@@ -1,0 +1,85 @@
+{# Example tab component #}
+
+{% call tabs.object('example') %}
+    {# Generate random hash so that you can label the tabs with similar names as other tab groups with no conflict #}
+    {% set grpHash = randomHash() %}
+
+    {% call tabs.list() %}
+        {{ tabs.activeItem('Promotion', paneId='promotion'+grpHash) }}
+        {{ tabs.item('Benefits', paneId='benefits'+grpHash) }}
+        {{ tabs.item('Get Started', paneId='get_started'+grpHash) }}
+    {% endcall %}
+
+    {% call tabs.content() %}
+
+        {%- call tabs.activePane(id='promotion'+grpHash) -%}
+            CONTENT 1
+        {%- endcall -%}
+
+        {%- call tabs.pane(id='benefits'+grpHash) -%}
+            CONTENT 2
+        {%- endcall -%}
+
+        {%- call tabs.pane(id='get_started'+grpHash) -%}
+            CONTENT 3
+        {%- endcall -%}
+
+    {% endcall %}
+
+    {% set grpHash = '' %}
+{% endcall %}
+
+{# Example with different animated elements within one object #}
+{# Useful if you have multiple elements with different animations at sequential speeds 
+!!Requires AOS plugin to work!!
+#}
+{% call fancy.object(pageName,1) %}
+    {% call fancy.imgLayer(1,'fade-up') %}
+        {% call fancy.imgElem(1,'img/kv.png',alt='alt content') %}
+            
+        {% endcall %}
+    {% endcall %}
+    {% call fancy.imgLayer(2,'fade-up') %}
+        {% call fancy.content() %}
+            <p>
+            Content here...
+            </p>
+        
+            {{ btn.link('#','Button Text here',newWindow=true) }}
+        {% endcall %}
+    {% endcall %}
+
+{% endcall %}
+
+
+
+{# Example carousel #}
+
+{% call carousel.object(aos="fade-up") %}
+    {% for item in carouselData %}
+            {% set loopNumber = loop.index %}
+            {%- call carousel.item() -%}
+                <h3 class="styleCarousel_itemHeader">
+                    {{item.merchant}} 
+                </h3>
+                {{ item.period | safe }}
+                {# <a class="styleCarousel_cta" href="{{item.url}}">Read More ></a> #}
+                {% call modal.anchor(pageName,loopNumber,['styleCarousel_cta']) %}
+                    Read More >
+                {% endcall %}
+            {%- endcall -%}
+        {% endfor %}
+{% endcall %}
+{% for item in carouselData %}
+    {% set loopNumber = loop.index %}
+
+    {% call modal.object(loopNumber,pageName) %}
+        {% call modal.header() %}
+            {{ item.title }}
+        {% endcall %}
+        {% if item.url %}{% set linkout = item.url %}{% endif %}
+        {% call modal.content(linkout) %}
+            <p class="myModal_content">{{ item.content | safe }}</p>
+        {% endcall %}
+    {% endcall %}
+{% endfor %}

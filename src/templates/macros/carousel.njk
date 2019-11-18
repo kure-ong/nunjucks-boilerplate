@@ -1,0 +1,18 @@
+{%- macro object(slidesToShow = 3, slidesToScroll = 3, aos) -%}
+    {% set divSlideToShow = slidesToShow/2 %}
+    {% set divSlideToScroll = slidesToScroll/2 %}
+
+    <div class="styleCarousel" data-slick='{"slidesToShow": {{ slidesToShow  }}, "slidesToScroll": {{ slidesToScroll }}, "responsive": [{ "breakpoint": 992, "settings": { "slidesToShow": {{ divSlideToShow | round(0, "ceil") }}, "slidesToScroll": {{ divSlideToScroll | round(0, "ceil") }} } },{ "breakpoint": 568, "settings": { "slidesToShow": 1, "slidesToScroll": 1 } }] }'  {% if aos %}data-aos="{{ aos }}" data-aos-delay="400"{% endif %}>
+        {{ caller() }}
+    </div>
+{%- endmacro -%}
+  
+{%- macro item(img) -%}
+    <div class="styleCarousel_slide">
+        <div class="styleCarousel_item">
+            <div class="styleCarousel_content" style="{% if img %}background-image: url('{{ img }}'){% endif %}">
+                {{ caller() }}
+            </div>
+        </div>
+    </div>
+{%- endmacro -%}

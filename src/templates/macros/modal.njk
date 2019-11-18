@@ -1,0 +1,39 @@
+{% import 'macros/btn.njk' as btn %}
+
+{%- macro object(id,pageName,classes = []) -%}
+    <!-- Modal -->
+    <div class="modal myModal fade {{ classes | join(' ') }}" id="myModal{{ pageName | capitalize }}{{ id }}" tabindex="-1">
+        <div class="myModal_dialog modal-dialog modal-dialog-centered" role="document">
+            <div class="myModal_content modal-content">
+                {{ caller() }}
+            </div>
+        </div>
+    </div>
+    <!-- End of Modal -->
+{%- endmacro -%}
+
+{%- macro anchor(pageName,id,classes = []) -%}
+    <div class="myModal_anchor myModal_anchor-{{pageName}}{{id}} {{ classes | join(' ') }}" data-toggle="modal" data-target="#myModal{{ pageName | capitalize }}{{ id }}">
+        {{ caller() }}
+    </div>
+{%- endmacro -%}
+
+{%- macro header(classes = []) -%}
+    <div class="modal-header myModal_header {{ classes | join(' ') }}">
+        <h5 class="modal-title myModal_title">{{ caller() }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{%- endmacro -%}
+
+{%- macro content(linkout,classes = []) -%}
+    <div class="modal-body myModal_body">
+        {{ caller() }}
+    </div>
+    {% if linkout %}
+        <div class="modal-footer myModal_footer">
+            {{ btn.link(linkout,newWindow="true") }}
+        </div>
+    {% endif %}
+{%- endmacro -%}

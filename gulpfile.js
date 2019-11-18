@@ -72,6 +72,25 @@ gulp.task('modernizr', function () {
 });
 
 gulp.task('nunjucks', function () {
+    const manageEnvironment = function (environment) {
+        environment.addFilter('slug', function (str) {
+            return str && str.replace(/\s/g, '-', str).toLowerCase();
+        });
+
+        environment.addFilter('appendFilename', function (filename, string) {
+            var dotIndex = filename.lastIndexOf(".");
+            if (dotIndex == -1) return filename + string;
+            else return filename.substring(0, dotIndex) + string + filename.substring(dotIndex);
+        });
+
+        environment.addGlobal('randomHash', function () {
+            let result = '',
+                length = 8,
+                chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            for (let i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+            return result;
+        });
+    }
     // Gets .html and .nunjucks files in pages
     return gulp.src('src/pages/**/*.+(html|nunjucks|njk)')
         //-- Adds data from the JSON to nunjucks
@@ -80,7 +99,8 @@ gulp.task('nunjucks', function () {
         // }))
         // Renders template with nunjucks
         .pipe(nunjucksRender({
-            path: ['src/templates']
+            path: ['src/templates'],
+            manageEnv: manageEnvironment
         }))
         // output files in app folder
         .pipe(gulp.dest(rootDir))

@@ -33,4 +33,22 @@
     }
   
     @return $string;
+}
+
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {List}            - text-shadow list
+@function text-stroke($color,$stroke: 1) {
+    @if type-of($stroke) == 'number' and not unitless($stroke) {
+        $stroke: $stroke / ($stroke * 0 + 1);
+    }
+$shadow: ();
+$from: $stroke*-1;
+@for $i from $from through $stroke {
+ @for $j from $from through $stroke {
+    $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
   }
+}
+@return $shadow;
+}

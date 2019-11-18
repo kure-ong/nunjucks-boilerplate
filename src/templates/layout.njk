@@ -1,5 +1,10 @@
+{# Import all global macros #}
 {% import 'macros/nav.njk' as nav %}
 {% import 'macros/btn.njk' as btn %}
+{% import 'macros/tabs.njk' as tabs %}
+{% import 'macros/carousel.njk' as carousel %}
+{% import 'macros/modal.njk' as modal %}
+{# End Import all global macros #}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +23,10 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="{% block ogimage %}{% endblock %}" />
 
-    
+    <!-- plugin stylesheets -->
+    {# <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/> #}
+    <!-- end plugin stylesheets -->
 
     <link rel="stylesheet" href="css/main.css">
 
@@ -33,6 +41,10 @@
     <script src="js/vendor/jquery.min.js"></script>
     <script src="js/vendor/modernizr.js"></script>
     <script src="js/vendor/bundle.js"></script>
+    <!-- plugin scripts -->
+    {# <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script> #}
+    <!-- end plugin scripts -->
     <script src="js/main.js"></script>
 </body>
 </html>
